@@ -39,3 +39,24 @@ Route::post('/product', function (Illuminate\Http\Request $request) {
     $discountPrice = $request->price - $discountAmount;
     return view('product_display', compact(['discountPrice', 'discountAmount']));
 });
+
+Route::get('/dictionary', function () {
+    return view('dictionary');
+});
+
+Route::post('/dictionary', function (Illuminate\Http\Request $request) {
+    $search = $request->search;
+    $flag = 0;
+    $dictionary = array("hello" => "xin chào", "speak" => "nói", "sleep" => "ngủ", "music" => "âm nhạc");
+    foreach ($dictionary as $word => $value) {
+        if ($search == $word) {
+            echo "Từ " . $word . " có nghĩa là " . $value;
+            $flag = 1;
+        }
+    }
+    if ($flag == 0) {
+        echo "Không tìm thấy từ cần tra";
+    }
+
+    return view('dictionary');
+});

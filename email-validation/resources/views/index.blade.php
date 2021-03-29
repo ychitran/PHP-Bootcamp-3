@@ -1,9 +1,9 @@
 <div class="main-content">
     <h1>Ứng dụng kiểm tra email hợp lệ</h1>
-    <form method="post" action="{{ route('checkEmail')}}">
+    <form method="POST" action="{{ route('checkEmail')}}">
         @csrf
         <label for="email-input">Email:</label>
-        <input id="email-input" type="email" placeholder="Nhập email cần kiểm tra" name="email">
+        <input id="email-input" type="text" placeholder="Nhập email cần kiểm tra" name="email">
         <input type="submit" value="Check">
     </form>
     @if(isset($isEmail))

@@ -16,36 +16,34 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// Tạo 1 nhóm route với tiền tố customer
 Route::prefix('customer')->group(function () {
     Route::get('index', function () {
         // Hiển thị danh sách khách hàng
-
+        return view('index');
     });
 
     Route::get('create', function () {
-        //Hiển thị form tạo khách hàng
-        return view('create');
+        // Hiển thị Form tạo khách hàng
     });
 
-    Route::post('store', function (\Illuminate\Http\Request $request) {
-        //Xử lý lưu dữ liệu tạo khách hàng thông qua POST
-
+    Route::post('store', function () {
+        // Xử lý lưu dữ liệu tạo khách hàng thong qua phương thức POST từ form
     });
 
     Route::get('{id}/show', function () {
-        //Lấy chi tiết khách hàng có id là...
+        // Hiển thị thông tin chi tiết khách hàng có mã định danh id
     });
 
     Route::get('{id}/edit', function () {
-        //Chỉnh sửa khách hàng có id là...
+        // Hiển thị Form chỉnh sửa thông tin khách hàng
     });
 
     Route::patch('{id}/update', function () {
-        //Xử lý lưu dữ liệu khách hàng được cập nhật từ form
+        // xử lý lưu dữ liệu thông tin khách hàng được chỉnh sửa thông qua PATCH từ form
     });
 
-    Route::delete('{id}/delete', function () {
-        //Xoá khách hàng có id l
+    Route::delete('{id}', function () {
+        // Xóa thông tin dữ liệu khách hàng
     });
 });

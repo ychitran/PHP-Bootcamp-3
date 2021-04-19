@@ -28,6 +28,7 @@
             <input type="number" class="form-control" id="percent" name="percent" placeholder="Percent">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+
     </form>
 
 </body>

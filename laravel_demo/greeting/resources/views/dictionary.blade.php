@@ -22,6 +22,10 @@
         </div>
         <button type="submit" class="btn btn-primary">Dịch</button>
 
+
+
+
+
     </form>
 
 </body>

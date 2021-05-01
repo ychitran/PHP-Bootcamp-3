@@ -78,9 +78,9 @@
     width: 100%;
 }
 
-.layout .carousel-inner,
-#carouselExampleIndicators,
-.carousel-item {
+.layout .carousel-item,
+.carousel-inner,
+#carouselExampleIndicators {
     height: 100%;
     width: 100%;
 }

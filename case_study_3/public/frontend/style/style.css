@@ -65,6 +65,9 @@
 /* NAVBAR MENU END */
 
 
+/*==================== HOME BLADE START=================================== */
+
+
 /* HEADER START */
 
 .layout {
@@ -89,6 +92,7 @@
     filter: brightness(85%);
     height: 100%;
     width: 100%;
+    z-index: -1;
 }
 
 
@@ -268,6 +272,47 @@ h4 {
 
 
 /* ABOUT CONTENT END */
+
+
+/*=============================== HOME BLADE END ===================================*/
+
+
+/* =========================== ABOUT BLADE START =============================================== */
+
+
+/* IMAGE ABOUT START */
+
+.about-image {
+    height: 700px;
+    width: auto;
+    margin-bottom: 80px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(85%);
+}
+
+
+/* IMAGE ABOUT END */
+
+
+/* CONTENT ABOUT START  */
+
+.about-content.container p {
+    font-size: 16px;
+    font-family: PT serif;
+    letter-spacing: .8px;
+    color: #353535;
+    line-height: 1.875;
+}
+
+
+/* CONTENT ABOUT END  */
+
+
+/*=========================== ABOUT BLADE END *===============================================/
 
 
 /* FOOTER START */

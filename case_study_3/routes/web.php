@@ -21,8 +21,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', function () {
-    return view('frontend.home');
+    return view('frontend.home.home');
 });
+Route::get('/about', function () {
+    return view('frontend.about.about');
+});
+
 
 //=============================Backend==================================
 // Login Backend Start

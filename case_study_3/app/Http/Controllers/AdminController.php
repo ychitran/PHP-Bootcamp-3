@@ -17,9 +17,8 @@ class AdminController extends Controller
 
     public function showAdmin()
     {
-        // if (auth()->check()) {
-        //     return redirect()->route('categories.index');
-        // }
+        //  Mã hoá pasword
+        // dd(bcrypt(value: 'ychil1ll1'));
         return view('login');
     }
 

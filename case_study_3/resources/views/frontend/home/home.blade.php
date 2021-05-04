@@ -1,6 +1,7 @@
 @extends('layout.head_layout')
 
 @section('main-content')
+<!-- ========================HOME BLADE START ===================================-->
 <!---------- HEADER START -------------->
 <div class="layout">
     <div class="layout-images">
@@ -12,12 +13,15 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
+
                     <img class="d-block w-100" src="/frontend/img/slides/01_slider_image.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
+
                     <img class="d-block w-100" src="/frontend/img/slides/02_slider_image.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
+
                     <img class="d-block w-100" src="/frontend/img/slides/03_slider_image.jpg" alt="Third slide">
                 </div>
             </div>
@@ -136,3 +140,5 @@
 
 
 @endsection
+
+<!-- ========================HOME BLADE END ===================================-->

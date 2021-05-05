@@ -7,10 +7,9 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
-
-
-
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -27,7 +26,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $categories = DB::table('categories')->simplePaginate(9);
+        $products = DB::table('products')->simplePaginate(9);
         return view('admin.products.list');
     }
 
@@ -53,21 +52,42 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function getCategory($parent_id)
+    {
+        $categories = $this->category->all();
+        $recursive = new Recursive($categories);
+        $htmlOption = $recursive->categoryRecursive($parent_id);
+        return $htmlOption;
+    }
     public function store(Request $request)
     {
-        //
-        $category = new Category();
-        $category->name = $request->input('name');
-        $category->parent_id = $request->input('parent_id');
-        $category->slug = Str::slug($request->input('name'));
-        $category->save();
+        $product = new Product();
+        $dataProductCreate = [
+            'name' => $request->name,
+            'price' => $request->price,
+            'content' => $request->content,
+            'user_id' => auth()->id(),
+            'category_id' => $request->category_id,
+
+        ];
+        // Lấy filename gốc của ảnh
+        $file = $request->feature_image_path;
+        $fileNameOrigin = $file->getClientOriginalName();
+        $fileNameHash = Str::random(20) . '.' . $file->getClientOriginalExtension();
+        //Upload ảnh vào thư mục public/product
+        $path = $request->file('feature_image_path')->storeAs('public/product/' . auth()->id(), $fileNameHash);
+        $data = [
+            'file_name' => $fileNameOrigin,
+            'file_path' => Storage::url($path)
+        ];
+        $product->save();
 
         //Tạo Session khi thành công
-        Session::flash('success', 'Category add successfully');
+        Session::flash('success', 'Product add successfully');
 
         //Tạo xong quay về list
 
-        return redirect()->route('categories.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -88,19 +108,13 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function getCategory($parent_id)
-    {
-        $categories = $this->category->all();
-        $recursive = new Recursive($categories);
-        $htmlOption = $recursive->categoryRecursive($parent_id);
-        return $htmlOption;
-    }
+
     public function edit($id)
     {
         //
-        $category = Category::findOrFail($id);
-        $htmlOption = $this->getCategory($category->parent_id);
-        return view('admin.categories.edit', compact('category', 'htmlOption'));
+        $product = Product::findOrFail($id);
+        $htmlOption = $this->getProduct($product->parent_id);
+        return view('admin.products.edit', compact('product', 'htmlOption'));
     }
 
     /**
@@ -114,19 +128,13 @@ class ProductController extends Controller
     {
         //
 
-        $category = Category::findOrFail($id);
-        $category->name = $request->input('name');
-        $category->parent_id = $request->input('parent_id');
-        $category->slug = $request->input('slug');
-        $category->save();
-
         //Thông báo cập nhật thành công
 
         Session::flash('success', 'Update Successfully');
 
         //Quay trở về list
 
-        return redirect()->route('categories.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -138,8 +146,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $product = Product::findOrFail($id);
+        $product->delete();
 
         //Thông báo xoá thành công
 
@@ -147,6 +155,6 @@ class ProductController extends Controller
 
         //Quay trở về list
 
-        return redirect()->route('categories.index');
+        return redirect()->route('products.index');
     }
 }

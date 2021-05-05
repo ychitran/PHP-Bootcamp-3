@@ -14,11 +14,11 @@ Product
         <h4>Add Product</h4>
     </div>
     <div class="col-md-3 col-3 text-center">
-        <a href=""><button type="button" class="btn btn-outline-dark">Return</button></a>
+        <a href="{{route('products.index')}}"><button type="button" class="btn btn-outline-dark">Return</button></a>
     </div>
 </div>
 <br>
-<form method="POST" action="#" enctype="multipart/form-data">
+<form method="POST" action="{{route('products.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="exampleInputName">Name Product</label>
@@ -38,7 +38,7 @@ Product
     </div>
     <div class="form-group">
         <label for="exampleInputParent_id1">Parent_ID</label>
-        <select class="form-control" id="exampleInputParent_id1" name="parent_id">
+        <select class="form-control" id="exampleInputParent_id1" name="category_id">
             <option value="0" hidden>Please choose Parent ID</option>
             <option>{!! $htmlOption !!}</option>
         </select>

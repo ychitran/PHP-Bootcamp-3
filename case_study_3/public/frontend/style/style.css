@@ -286,12 +286,28 @@ h4 {
     height: 700px;
     width: auto;
     margin-bottom: 80px;
+    display: flex;
+    position: relative;
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
-    filter: brightness(85%);
+    filter: brightness(65%);
+    z-index: -1;
+    position: absolute;
+}
+
+.about-image .tittle-blade {
+    margin: auto;
+}
+
+.about-image .tittle-blade p {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #fff;
+    font-family: Montserrat;
 }
 
 
@@ -300,12 +316,59 @@ h4 {
 
 /* CONTENT ABOUT START  */
 
+.about-content.container {
+    height: auto;
+    width: auto;
+    margin-bottom: 80px;
+}
+
 .about-content.container p {
     font-size: 16px;
     font-family: PT serif;
     letter-spacing: .8px;
     color: #353535;
     line-height: 1.875;
+}
+
+.about-content.container h3 {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 24px;
+    color: #353535;
+    letter-spacing: 1px;
+}
+
+.about-content.container .tittle-content h3::after {
+    content: "";
+    height: 1px;
+    width: 25px;
+    display: block;
+    background-color: #c2a476;
+    margin: 10px 0;
+}
+
+.about-content.container img {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.about-content.container h3::after {
+    content: "";
+    height: 1px;
+    width: 50px;
+    display: block;
+    margin: 10px auto;
+    background-color: #c2a476;
+}
+
+.about-content.container .job {
+    color: #c2a476;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    font-family: PT serif;
+    font-weight: 500;
+    line-height: 1.1;
 }
 
 

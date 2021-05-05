@@ -27,28 +27,27 @@
     <div class="navbar-menu">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-1 col-1">
                     <img src="/frontend/img/logo/new_logo.png" alt="">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 col-10">
                     <nav class="navbar navbar-expand ">
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="home">HOME <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">ABOUT</a>
+                                    <a class="nav-link" href="about">ABOUT</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         SHOP
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Abstract Prints</a>
+                                        <a class="dropdown-item" href="#">Greeting Card</a>
+                                        <a class="dropdown-item" href="#">Journals</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">

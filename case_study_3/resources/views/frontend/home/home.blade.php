@@ -13,7 +13,6 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-
                     <img class="d-block w-100" src="/frontend/img/slides/01_slider_image.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">

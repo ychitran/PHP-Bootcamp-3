@@ -26,6 +26,9 @@ Route::get('/home', function () {
 Route::get('/about', function () {
     return view('frontend.about.about');
 });
+Route::get('/shop', function () {
+    return view('frontend.shop.shop');
+});
 
 
 //=============================Backend==================================
